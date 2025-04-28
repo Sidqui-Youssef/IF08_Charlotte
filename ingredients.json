@@ -1,0 +1,56 @@
+[
+  {
+    "nutriscore_grade": "e",
+    "nutriscore_score": 20,
+    "image_url": "https://images.openfoodfacts.net/images/products/316/543/371/4010/front_fr.38.200.jpg",
+    "product_name": "Sucre en poudre"
+  },
+  {
+    "nutriscore_grade": "not-applicable",
+    "nutriscore_score": null,
+    "image_url": "https://images.openfoodfacts.net/images/products/322/247/742/5446/front_fr.3.200.jpg",
+    "product_name": "Gélatine alimentaire en feuille issue de l'agriculture bio"
+  },
+  {
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "image_url": "https://images.openfoodfacts.net/images/products/370/055/540/0009/front_fr.14.200.jpg",
+    "product_name": "Fraise Barquette"
+  },
+  {
+    "nutriscore_grade": "e",
+    "nutriscore_score": 22,
+    "image_url": "https://images.openfoodfacts.net/images/products/317/853/040/4678/front_fr.85.200.jpg",
+    "product_name": "Bonne Maman - Lady Fingers Cookies, 250g (8.9oz)"
+  },
+  {
+    "nutriscore_grade": "not-applicable",
+    "nutriscore_score": null,
+    "image_url": "https://images.openfoodfacts.net/images/products/304/131/102/6751/front_fr.7.200.jpg",
+    "product_name": "liqueur fraises des bois"
+  },
+  {
+    "nutriscore_grade": "b",
+    "nutriscore_score": -2,
+    "image_url": "https://images.openfoodfacts.net/images/products/000/002/001/9907/front_en.187.200.jpg",
+    "product_name": "Succo di limone"
+  },
+  {
+    "nutriscore_grade": "d",
+    "nutriscore_score": 13,
+    "image_url": "https://images.openfoodfacts.net/images/products/315/525/120/5395/front_fr.74.200.jpg",
+    "product_name": "Bridélice Crème légère fluide 12%Mat. Gr."
+  },
+  {
+    "nutriscore_grade": "e",
+    "nutriscore_score": 20,
+    "image_url": "https://images.openfoodfacts.net/images/products/872/270/003/0119/front_fr.73.200.jpg",
+    "product_name": "Sucre vanillé x 12 sachets"
+  },
+ {
+    "nutriscore_grade": "b",
+    "nutriscore_score": 0,
+    "image_url": "https://images.openfoodfacts.net/images/products/339/985/200/0021/front_en.49.200.jpg",
+    "product_name": "GLACON APERITIF ALIMENTAIRE 2K"
+  }
+]
