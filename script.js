@@ -1,36 +1,44 @@
+document.addEventListener("DOMContentLoaded", () => {
+    fetch('ingredients.json')
+        .then(res => {
+            if (!res.ok) throw new Error('Erreur lors du chargement du JSON');
+            return res.json();
+        })
+        .then(data => {
+            const container = document.getElementById('ingredient');
+            container.innerHTML = ''; // On vide les blocs statiques existants
 
-let productList = [3250391256150, 3294580102019, 3270190118862, 3183280012875, 3166296204267,  3760189580850, 3154230802280, 3144550004761]
+            data.forEach(product => {
+                const box = document.createElement('div');
+                box.className = 'ingredient-box';
 
-let plist = document.getElementById("productList");
+                // Image de l'ingrédient
+                const img = document.createElement('img');
+                img.src = product.image_url;
+                img.alt = product.product_name;
 
-for(let p in productList){
+                // Nom de l'ingrédient
+                const name = document.createElement('h2');
+                name.textContent = product.product_name;
 
-	
-	fetch("https://world.openfoodfacts.net/api/v2/product/"+productList[p]+"?fields=product_name,nutriscore_grade,nutriscore_score,image_front_small_url", { crossorigin: 'anonymous'})
-	// alternative pour travailler avec des JSON sur le même serveur (et non ceux d'OFF)
-	//fetch(productList[p]+".json")
-	.then((response) => {
-		if (!response.ok) {
-           throw new Error("HTTP error " + response.status);
-       }
-			return response.json();
-		})
-	.then((data) => {
-		addIngredient(data.code, data.product);
-	})
-	 .catch(function () {
-       this.dataError = true;
-   });
-}
+                // Nutri-score
+                const nutri = document.createElement('img');
+                const grade = product.nutriscore_grade && product.nutriscore_grade !== 'not-applicable'
+                    ? product.nutriscore_grade
+                    : 'unknown';
+                nutri.src = `https://static.openfoodfacts.org/images/attributes/dist/nutriscore-${grade}.svg`;
+                nutri.alt = `Nutriscore ${grade}`;
 
-const addIngredient = function(pcode, pproduct){
-	const content  = document.createElement("div");
-	const nutriScore = pproduct.nutriscore_grade || "unknown";
-	content.setAttribute("class", "col-lg-4");
-	content.innerHTML = `
-			<svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>${pproduct.product_name}</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text><image href="${pproduct.image_front_small_url}" height="100%" width="100%" /></svg>
-			<h2 class="fw-normal">${pproduct.product_name}</h2>
-			<p><img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-${nutriScore}.svg" style="height:72px;float:right;margin-left:0.5rem;"/></p>
-		`;
-		plist.appendChild(content);
-}
+                // Ajout dans le bloc
+                box.appendChild(img);
+                box.appendChild(name);
+                box.appendChild(nutri);
+
+                // Ajout dans le container
+                container.appendChild(box);
+            });
+        })
+        .catch(err => {
+            console.error('Erreur de chargement des ingrédients :', err);
+        });
+});
